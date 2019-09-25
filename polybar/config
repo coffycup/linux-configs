@@ -1,0 +1,207 @@
+[colors]
+background = #cf222222
+background-alt = #cf444444
+foreground = #dfdfdf
+foreground-alt = #555
+alert = #bd2c40
+
+
+[bar/comfybar]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 25
+
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+module-margin-left = 1
+module-margin-right = 1
+padding-right = 1
+
+font-0 = fixed:pixelsize=10;1
+font-1 = FontAwesome:pixelsize=11;1
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=11;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=11;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=11;1"
+
+modules-left = i3 xwindow
+modules-center = date time
+modules-right = filesystem temperature network volume battery keyboard
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+
+
+[module/i3]
+type = internal/i3
+format = <label-state>
+index-sort = true
+wrapping-scroll = false
+
+; custom workspace icons
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = ${colors.background-alt}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+
+[module/xwindow]
+type = internal/xwindow
+label = [ %title:0:30:...% ]
+label-foreground = #f48aa3
+
+
+[module/filesystem]
+type = internal/fs
+interval = 10
+fixed-values = true
+mount-0 = /
+
+format-mounted =  <label-mounted>
+
+label-mounted = %free%
+label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+
+[module/temperature]
+type = internal/temperature
+base-temperature = 20
+warn-temperature = 60
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.alert}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-foreground = ${colors.foreground}
+
+
+[module/network]
+type = internal/network
+interface = wlp1s0
+interval = 5
+
+format-connected =  <label-connected>
+format-packetloss =  <label-connected>
+format-disconnected =  <label-disconnected>
+
+label-connected = %essid% %downspeed:9%
+label-connected-foreground = ${colors.foreground}
+
+label-disconnected = No connection
+label-disconnected-foreground = ${colors.foreground-alt}
+
+
+[module/volume]
+type = internal/alsa
+
+format-volume = <ramp-volume> <label-volume>
+label-volume-foreground = ${colors.foreground}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+label-muted =  muted
+label-muted-foreground = ${colors.foreground-alt}
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 99
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground}
+
+label-charging = CHR %percentage%%
+label-full = 100%
+
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+
+ramp-capacity-0 = ""
+ramp-capacity-0-foreground = ${colors.alert}
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-foreground = ${colors.foreground}
+
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %a-%b-%d
+
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
+
+label = %date%
+
+
+[module/time]
+type = internal/date
+interval = 5
+
+time = %I:%M %p
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+
+label = %time%
+
+
+[module/keyboard]
+type = internal/xkeyboard
+
+format = <label-layout>
+
+label-layout-foreground = #40e3ca
+
+
+[settings]
+screenchange-reload = true
+
+; vim:ft=dosini
