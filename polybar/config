@@ -1,8 +1,10 @@
 [colors]
-background = #cf222222
-background-alt = #cf444444
+background = #cf172a47
+background-alt = #cf3C5A46
+background-unf = #cf2E463E
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #707070
+foreground-xwin = #f3f3ba
 alert = #bd2c40
 
 
@@ -18,7 +20,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 module-margin-left = 1
-module-margin-right = 1
+module-margin-right = 2
 padding-right = 1
 
 font-0 = fixed:pixelsize=10;1
@@ -53,28 +55,29 @@ ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
-ws-icon-9 = 10;
+ws-icon-9 = 10;
 ws-icon-default = 
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
 label-focused-background = ${colors.background-alt}
-label-focused-padding = 2
+label-focused-padding = 3
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
-label-unfocused-padding = 2
+label-unfocused-background = ${colors.background-unf}
+label-unfocused-padding = 3
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 3
 
 
 [module/xwindow]
 type = internal/xwindow
 label = [ %title:0:30:...% ]
-label-foreground = #f48aa3
+label-foreground = ${colors.foreground-xwin}
 
 
 [module/filesystem]
@@ -92,6 +95,8 @@ label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/temperature]
 type = internal/temperature
+thermal-zone = 0
+hwmon-path = /sys/devices/virtual/hwmon/hwmon2/temp1_input
 base-temperature = 20
 warn-temperature = 60
 

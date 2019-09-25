@@ -191,8 +191,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec $HOME/.config/i3/brightness.py -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec $HOME/.config/i3/brightness.py -dec 20 # increase screen brightness
+bindsym XF86MonBrightnessUp exec $HOME/.config/i3/brightness.py -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec $HOME/.config/i3/brightness.py -dec 10 # increase screen brightness
 
 # Touchpad controls
 bindsym $mod+Escape exec $HOME/.config/i3/toggletouchpad.sh # toggle touchpad
