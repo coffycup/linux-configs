@@ -3,7 +3,7 @@ background = #cf172a47
 background-alt = #cf3C5A46
 background-unf = #cf2E463E
 foreground = #dfdfdf
-foreground-alt = #707070
+foreground-alt = #808080
 foreground-xwin = #f3f3ba
 alert = #bd2c40
 
@@ -21,7 +21,6 @@ foreground = ${colors.foreground}
 
 module-margin-left = 1
 module-margin-right = 2
-padding-right = 1
 
 font-0 = fixed:pixelsize=10;1
 font-1 = FontAwesome:pixelsize=11;1
@@ -31,7 +30,7 @@ font-4 = "Font Awesome 5 Brands:pixelsize=11;1"
 
 modules-left = i3 xwindow
 modules-center = date time
-modules-right = filesystem temperature network volume battery keyboard
+modules-right = filesystem temperature network volume backlight battery keyboard powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -56,7 +55,7 @@ ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
 ws-icon-9 = 10;
-ws-icon-default = 
+ws-icon-default = 
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
@@ -80,6 +79,30 @@ label = [ %title:0:30:...% ]
 label-foreground = ${colors.foreground-xwin}
 
 
+[module/date]
+type = internal/date
+interval = 5
+
+date = %a-%b-%d
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+
+label = %date%
+
+
+[module/time]
+type = internal/date
+interval = 5
+
+time = %I:%M %p
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+
+label = %time%
+
+
 [module/filesystem]
 type = internal/fs
 interval = 10
@@ -97,7 +120,7 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/temperature
 thermal-zone = 0
 hwmon-path = /sys/devices/virtual/hwmon/hwmon2/temp1_input
-base-temperature = 20
+base-temperature = 35
 warn-temperature = 60
 
 format = <ramp> <label>
@@ -120,13 +143,12 @@ interface = wlp1s0
 interval = 5
 
 format-connected =  <label-connected>
-format-packetloss =  <label-connected>
-format-disconnected =  <label-disconnected>
+format-packetloss =  <label-connected>
 
-label-connected = %essid% %downspeed:9%
+label-connected = %essid%%downspeed:9%
 label-connected-foreground = ${colors.foreground}
 
-label-disconnected = No connection
+label-disconnected =  no connection
 label-disconnected-foreground = ${colors.foreground-alt}
 
 
@@ -144,6 +166,18 @@ label-muted =  muted
 label-muted-foreground = ${colors.foreground-alt}
 
 
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+
+format = <ramp> <label>
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+
+
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -152,17 +186,14 @@ full-at = 99
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground}
-
-label-charging = CHR %percentage%%
 label-full = 100%
 
-animation-charging-0 = ""
-animation-charging-1 = ""
-animation-charging-2 = ""
-animation-charging-3 = ""
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 
@@ -174,36 +205,44 @@ ramp-capacity-3 = ""
 ramp-capacity-foreground = ${colors.foreground}
 
 
-[module/date]
-type = internal/date
-interval = 5
-
-date = %a-%b-%d
-
-format-prefix = "  "
-format-prefix-foreground = ${colors.foreground}
-
-label = %date%
-
-
-[module/time]
-type = internal/date
-interval = 5
-
-time = %I:%M %p
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-
-label = %time%
-
-
 [module/keyboard]
 type = internal/xkeyboard
 
 format = <label-layout>
 
 label-layout-foreground = #40e3ca
+
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+
+label-open = ""
+label-open-padding = 2
+label-open-background = ${colors.background-alt}
+label-open-foreground = ${colors.foreground}
+
+label-close = "back"
+label-close-padding = 2
+label-close-background = ${colors.background-alt}
+label-close-foreground = ${colors.foreground}
+
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = lock
+menu-0-0-exec = betterlockscreen -l dimblur
+menu-0-1 = reboot
+menu-0-1-exec = menu-open-1
+menu-0-2 = "power off "
+menu-0-2-exec = menu-open-2
+
+menu-1-0 = "OK "
+menu-1-0-exec = systemctl reboot
+
+menu-2-0 = "OK "
+menu-2-0-exec = systemctl poweroff
 
 
 [settings]

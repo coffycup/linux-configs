@@ -1,0 +1,47 @@
+urxvt*scrollBar: false
+urxvt*depth: 32
+
+urxvt.font: xft:Ubuntu Mono:pixelsize=17,style=regular
+urxvt.boldFont: xft:Ubuntu Mono:pixelsize=17,style=bold
+
+! need to install xclip
+urxvt.keysym.Shift-Control-V: perl:clipboard:paste
+urxvt.perl-ext-common: default,clipboard
+urxvt.iso14755: False
+
+! special
+urxvt.foreground:   #ffffff
+urxvt.background:   [80]#03282c
+urxvt.cursorColor:  #ffffff
+
+! black
+urxvt.color0  : #000000
+urxvt.color8  : #555555
+
+! red
+urxvt.color1  : #aa0000
+urxvt.color9  : #ff5555
+
+! green
+urxvt.color2  : #00aa00
+urxvt.color10 : #55ff55
+
+! yellow
+urxvt.color3  : #aa5500
+urxvt.color11 : #ffff55
+
+! blue
+urxvt.color4  : #0000aa
+urxvt.color12 : #0077aa
+
+! magenta
+urxvt.color5  : #aa00aa
+urxvt.color13 : #ff55ff
+
+! cyan
+urxvt.color6  : #00aaaa
+urxvt.color14 : #55ffff
+
+! white
+urxvt.color7  : #aaaaaa
+urxvt.color15 : #ffffff

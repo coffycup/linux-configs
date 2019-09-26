@@ -57,7 +57,10 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;36m\]ポールです\[\033[00m\]:\[\033[01;33m\]\W\[\033[00m\]\$ '
+    userColor='\[\033[00;38;5;51m\]'
+    dirColor='\[\033[00;38;5;228m\]'
+    reset='\[\033[00m\]'
+    PS1="${debian_chroot:+($debian_chroot)}${userColor}ポールです${reset}:${dirColor}\W${reset}$ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

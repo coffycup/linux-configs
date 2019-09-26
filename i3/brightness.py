@@ -25,7 +25,7 @@ def setBrightness(percent):
   else:
     return
 
-  if (brightnessValue == 0 or brightnessValue == MAX_BRIGHTNESS):
+  if (brightnessValue == 1 or brightnessValue == MAX_BRIGHTNESS):
     return
 
   # Set up system command and execute
