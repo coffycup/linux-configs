@@ -11,7 +11,7 @@ urxvt.iso14755: False
 
 ! special
 urxvt.foreground:   #ffffff
-urxvt.background:   [80]#03282c
+urxvt.background:   [80]#000000
 urxvt.cursorColor:  #ffffff
 
 ! black

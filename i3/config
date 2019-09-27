@@ -202,13 +202,16 @@ bindsym $mod+Escape exec $HOME/.config/i3/toggletouchpad.sh # toggle touchpad
 exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
 # Set background
-exec_always feh --bg-scale $HOME/Pictures/Wallpapers/Coffee_time.jpg
+exec_always feh --bg-scale $HOME/Pictures/Wallpapers/The_broken_path.jpg
 
 # Configure monitor
 exec_always xrandr --output DP-1 --off --output HDMI-1 --off --output eDP-1 --primary --mode 1600x900 --pos 0x0 --rotate normal --output HDMI-2 --off
 
 # Compton
 exec_always compton -b
+
+# Load URxvt config
+exec_always xrdb -merge ~/.config/.Xresources
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
