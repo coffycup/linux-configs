@@ -133,7 +133,8 @@ if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! "$(type -t __init_nvm)" = function ]; then
 fi
 
 export EDITOR=vim
-
 export PATH="/usr/local/bin:$PATH"
+
+alias cls="echo -ne '\033c'"
 alias open='thunar' # need to install 'thunar' first
 alias clock='tty-clock -c -C 6' # need to install 'tty-clock' first
