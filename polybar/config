@@ -40,9 +40,12 @@ cursor-click = pointer
 
 [module/i3]
 type = internal/i3
-format = <label-state>
+format = <label-state><label-mode>
 index-sort = true
 wrapping-scroll = false
+
+label-mode-padding = 2
+label-mode-background = ${colors.alert}
 
 ; custom workspace icons
 ws-icon-0 = 1;
