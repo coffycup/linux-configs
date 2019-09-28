@@ -3,6 +3,7 @@ urxvt*depth: 32
 
 urxvt.font: xft:Ubuntu Mono:pixelsize=17,style=regular
 urxvt.boldFont: xft:Ubuntu Mono:pixelsize=17,style=bold
+urxvt.letterSpace: -1
 
 ! need to install xclip
 urxvt.keysym.Shift-Control-V: perl:clipboard:paste
