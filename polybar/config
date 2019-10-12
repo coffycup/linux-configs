@@ -16,6 +16,9 @@ height = 25
 radius = 0.0
 fixed-center = true
 
+tray-position = right
+tray-padding = 3
+
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -28,9 +31,9 @@ font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=11;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=11;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=11;1"
 
-modules-left = i3 xwindow
+modules-left = powermenu i3 xwindow
 modules-center = date time
-modules-right = filesystem temperature network volume backlight battery keyboard powermenu
+modules-right = filesystem temperature network volume backlight battery
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -41,6 +44,7 @@ cursor-click = pointer
 [module/i3]
 type = internal/i3
 format = <label-state><label-mode>
+format-offset = -12
 index-sort = true
 wrapping-scroll = false
 
@@ -208,27 +212,19 @@ ramp-capacity-3 = ""
 ramp-capacity-foreground = ${colors.foreground}
 
 
-[module/keyboard]
-type = internal/xkeyboard
-
-format = <label-layout>
-
-label-layout-foreground = #40e3ca
-
-
 [module/powermenu]
 type = custom/menu
 
 format-spacing = 1
 
 label-open = ""
-label-open-padding = 2
-label-open-background = ${colors.background-alt}
+label-open-padding = 3
+label-open-background = ${colors.background-unf}
 label-open-foreground = ${colors.foreground}
 
 label-close = "back"
 label-close-padding = 2
-label-close-background = ${colors.background-alt}
+label-close-background = ${colors.background-unf}
 label-close-foreground = ${colors.foreground}
 
 label-separator = |
