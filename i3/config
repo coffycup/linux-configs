@@ -183,6 +183,11 @@ gaps inner 6
 # Mouse, please stop focus whenever you hover to whatever windows plz :(
 focus_follows_mouse no
 
+# Interactive screenshot by pressing printscreen
+bindsym --release Print exec gnome-screenshot -i
+# Crop-area screenshot by pressing Mod + printscreen
+bindsym --release $mod+Print exec gnome-screenshot -a
+
 # Lock i3
 bindsym $mod+Shift+x exec betterlockscreen -l dimblur
 
