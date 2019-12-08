@@ -119,22 +119,27 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! "$(type -t __init_nvm)" = function ]; then
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-	declare -a __node_commands=(nvm `find -L $NVM_DIR/versions/*/*/bin -type f -exec basename {} \; | sort -u`)
-	function __init_nvm() {
-		for i in "${__node_commands[@]}"; do unalias $i; done
-		. "$NVM_DIR"/nvm.sh
-		unset __node_commands
-		unset -f __init_nvm
-	}
-	for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
-fi
 
-export EDITOR=vim
-export PATH="/usr/local/bin:$PATH"
+# Prevent nvm from loading slowly
+export NVM_DIR=$HOME/.nvm
+export PATH="$PATH:$NVM_DIR/versions/node/v13.3.0/bin"
+
+# Uncomment these lines whenever you want to use nvm
+ #if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! "$(type -t __init_nvm)" = function ]; then
+   #export NVM_DIR="$HOME/.nvm"
+   #[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+   #declare -a __node_commands=(nvm `find -L $NVM_DIR/versions/*/*/bin -type f -exec basename {} \; | sort -u`)
+   #function __init_nvm() {
+     #for i in "${__node_commands[@]}"; do unalias $i; done
+     #. "$NVM_DIR"/nvm.sh
+     #unset __node_commands
+     #unset -f __init_nvm
+   #}
+   #for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
+ #fi
 
 alias cls="echo -ne '\033c'"
 alias open='thunar' # need to install 'thunar' first
 alias clock='tty-clock -c -C 6' # need to install 'tty-clock' first
+alias vi='nvim'
+alias vim='nvim'
